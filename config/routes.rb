@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
-  resources :movie_reviews
+
+
   
   get 'about' => 'sites#about'
 
