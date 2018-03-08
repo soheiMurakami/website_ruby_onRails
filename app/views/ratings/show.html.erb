@@ -1,0 +1,7 @@
+<% title @rating.title %>
+<%= render @rating %>
+
+<%= link_to "Edit", edit_rating_path(@rating), class: "btn btn-primary"  %>
+<%= link_to "Delete", rating_path(@rating), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure about this?"} %>
+<hr>
+<%= link_to "All Ratings", ratings_path %>

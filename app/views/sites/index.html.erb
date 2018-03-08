@@ -1,3 +1,49 @@
-<% title "Hey!! Welcome to index Page" %>
+<% title "Hi!! Welcome to Movie Rating Home Page" %>
 
-<p>welcome to my task manager</p>
+
+<html>
+    <style>
+  article {
+  display: grid;
+  grid-template-columns: 
+    [full-start] minmax(1em, 1fr) 
+    [main-start] minmax(0, 56em) [main-end]
+    minmax(1em, 1fr) [full-end];
+  grid-gap: 1em;
+}
+
+section {
+  grid-column: main;
+}
+
+figure {
+  grid-column: full;
+}
+
+/* Demo Specific Styles */
+body {
+  padding: 2em 0;
+}
+
+article > * {
+  background-color: #eaeaea;
+  padding: 2em;
+}
+
+figure {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}
+    </style>
+  <article>
+  <section>
+    <h1></h1>
+    <p>Hi my name is Sohei. Movie is my passion. here i am really pround of being able to introduce my newest application. It is really fun to watch movies, but sometimes kinda hard to pick the one you want to watch. this site provides the best moview review </p>
+    <p>based on the votes from millions of users... also description tells you a plot. spoiler alert!!!!! .</p>
+  </section>
+  </article>
+
+

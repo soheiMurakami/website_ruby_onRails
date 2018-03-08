@@ -1,2 +1,48 @@
-<% title "About", false %>
-<p>Find me in app/views/sites/about.html.erb</p>
+<% title "Do you need help here is a usage guide" %>
+
+<html>
+    <style>
+  article {
+  display: grid;
+  grid-template-columns: 
+    [full-start] minmax(1em, 1fr) 
+    [main-start] minmax(0, 56em) [main-end]
+    minmax(1em, 1fr) [full-end];
+  grid-gap: 1em;
+}
+
+section {
+  grid-column: main;
+}
+
+figure {
+  grid-column: full;
+}
+
+/* Demo Specific Styles */
+body {
+  padding: 2em 0;
+}
+
+article > * {
+  background-color: #eaeaea;
+  padding: 2em;
+}
+
+figure {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}
+    </style>
+  <article>
+  <section>
+    <h1></h1>
+    <h2>1. put title </h2>
+    <h2>1. put rating </h2>
+    <h2>1. put description </h2>
+    <h2>if you wanna see the rating you put push create button below </h2>
+  </section>
+  </article>
