@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :ratings
-  
+  resources :ratings do
+    resources :characters
+  end
   
   get 'about' => 'sites#about'
 

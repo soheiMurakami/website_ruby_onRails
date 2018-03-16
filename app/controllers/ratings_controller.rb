@@ -20,6 +20,7 @@ class RatingsController < ApplicationController
     end
     #GET /ratings/:id ratings#show
     def show 
+        @rating = Rating.find(params[:id])
     end
     #GET /ratings/:id/edit ratings#edit
     def edit
@@ -31,6 +32,7 @@ class RatingsController < ApplicationController
         else
             render :edit
         end
+        
     end
     #DELETE /ratings/:id ratings#destroy
     def destroy

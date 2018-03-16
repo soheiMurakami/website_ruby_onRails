@@ -1,0 +1,6 @@
+<% title "Character Info #{@rating.title}" %>
+
+<%= render @characters %>
+<br>
+<%= link_to "Create character info", new_rating_character_path(@rating), class: "btn btn-primary" %><br>
+<%= link_to "Back to rating", rating_path(@rating) %>
