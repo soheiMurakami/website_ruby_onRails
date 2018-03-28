@@ -1,8 +1,9 @@
 class RatingsController < ApplicationController
+    before_action :authorize
     before_action :load_rating, except: [:index, :new, :create]
     #GET /rating ratings#index
     def index 
-        @ratings = Rating.all
+        @ratings = current_viewer.ratings.all
     end
     #GET /raings/new ratings#new
     def new 
@@ -11,6 +12,7 @@ class RatingsController < ApplicationController
     #POST /ratings ratings#create
     def create
         @rating = Rating.new rating_params
+        @rating.viewer = current_viewer
         if @rating.save
             redirect_to @rating, notice: "Rating has done"
         else
@@ -43,7 +45,7 @@ class RatingsController < ApplicationController
     private
     
     def load_rating
-        @rating = Rating.find params[:id]
+        @rating = current_viewer.ratings.find params[:id]
     end
     
     def rating_params

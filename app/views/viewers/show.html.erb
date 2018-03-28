@@ -1,0 +1,6 @@
+<% title @viewer.name %>
+<%= render @viewer %>
+
+<%= link_to "Edit", edit_viewer_path(@viewer), class: "btn btn-primary"  %>
+<%= link_to "Delete", viewer_path(@viewer), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure about this?"} %>
+<hr>

@@ -4,7 +4,14 @@ Rails.application.routes.draw do
     resources :characters
   end
   
+  resources :users
+  resources :viewers
+  resources :sessions, only: [:new, :create, :destroy]
+  
   get 'about' => 'sites#about'
+  get 'register' => 'viewers#new'
+  get 'login' => 'sessions#new'
+  get 'logout' =>'sessions#destroy'
 
   root 'sites#index'
 

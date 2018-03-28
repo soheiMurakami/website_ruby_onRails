@@ -27,7 +27,14 @@
           </li>
           <li class="nav-item">
             <!--<a class="nav-link" href="#">Link</a>-->
+          <% if current_viewer %>
             <%= nav_link "Rating", ratings_path %>
+            <%= nav_link current_viewer.name, current_viewer %>
+            <%= nav_link "Log out", logout_path %>
+          <% else %>
+            <%= nav_link "Sign-up", register_path %>
+            <%= nav_link "Log in", login_path %>
+          <% end %>
           </li>
           <li class="nav-item">
             <%= nav_link "Help", about_path %>
@@ -40,9 +47,7 @@
     
     
       <div class="container-fluid">
-        <h1>""</h1>
-        <h1> </h1>
-        <h1> </h1>
+       
         
         <% if @show_title %>
           <div id="title" class="row">
