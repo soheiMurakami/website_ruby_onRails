@@ -4,7 +4,13 @@
     <%= f.alert_message "Please fix the error below.", error_summary: false %>
     <%= f.text_field :name %>
     <%= f.text_field :email %>
-    <%= f.password_field :password %>
-    <%= f.password_field :password_confirmation %>
+    
+    
+    <% if @viewer.has_password? %>
+        <%= f.password_field :password %>
+        <%= f.password_field :password_confirmation %>
+    <% end %>
     <%= f.primary "Sign up" %>
 <% end %>
+
+<%= link_to "Sign up with Github", "/auth/github" %>

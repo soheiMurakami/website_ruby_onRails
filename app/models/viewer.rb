@@ -17,4 +17,17 @@ class Viewer < ApplicationRecord
         end
     end
     
+    def self.create_from_hash(viewer_hash)
+        viewer = Viewer.new
+        viewer.name = viewer_hash[:name]
+        viewer.email = viewer_hash[:email]
+        viewer.vid = viewer_hash[:vid]
+        viewer.token = viewer_hash[:token]
+        viewer.password_digest = "0"
+        viewer
+    end
+    
+    def has_password?
+        self.password_digest.nil? || self.password_digest != "0"
+    end
 end

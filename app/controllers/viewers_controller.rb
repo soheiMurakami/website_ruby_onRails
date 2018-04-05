@@ -2,12 +2,24 @@ class ViewersController < ApplicationController
    before_action :authorize, except: [:new, :create, :destroy]
    
     def new
-        @viewer = Viewer.new
+        if session[:viewer_hash]
+           @viewer = Viewer.create_from_hash(session[:viewer_hash].symbolize_keys)
+           @viewer.valid?
+        else
+             @viewer = Viewer.new
+        end
     end
     
     def create
-        @viewer = Viewer.new(viewer_params)
+        if session[:viewer_hash]
+            @viewer = Viewer.create_from_hash(session[:viewer_hash].symbolize_keys)
+            @viewer.name = viewer_params[:name]
+            @viewer.email = viewer_params[:email]
+        else
+            @viewer = Viewer.new(viewer_params)
+        end
         if @viewer.save
+            session[:user_hash] = nil
             login(@viewer)
             redirect_to root_path, notice: "Successfully signed up!"
         else
@@ -37,6 +49,7 @@ class ViewersController < ApplicationController
         if @viewer.update_with_password(viewer_params)
             redirect_to ratings_path, notice: "Account updated"
         else
+       
             render :edit
         end
     end

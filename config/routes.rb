@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'register' => 'viewers#new'
   get 'login' => 'sessions#new'
   get 'logout' =>'sessions#destroy'
-
+  get 'auth/:provider/callback' => "authentifications#create"
   root 'sites#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
