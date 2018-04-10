@@ -1,0 +1,32 @@
+<%= form_with(model: csvupload, local: true) do |form| %>
+  <% if csvupload.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(csvupload.errors.count, "error") %> prohibited this csvupload from being saved:</h2>
+
+      <ul>
+      <% csvupload.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :csvupload_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating, id: :csvupload_rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :csvupload_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

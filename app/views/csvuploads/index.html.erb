@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Csvuploads</h1>
+
+<div class='media'>
+  <div class='media-body'>
+    <table class='table table-hover'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Rating</th>
+            <th>Description</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @csvuploads.each do |csvupload| %>
+            <tr>
+              <td><%= csvupload.name %></td>
+              <td><%= csvupload.rating %></td>
+              <td><%= csvupload.description %></td>
+              <td><%= link_to 'Show', csvupload %></td>
+              <td><%= link_to 'Edit', edit_csvupload_path(csvupload) %></td>
+              <td><%= link_to 'Destroy', csvupload, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+
+<br>
+<h3>Import movie info</h3>
+<%= form_tag import_csvuploads_path, multipart: true do %>
+<%= file_field_tag :file %>
+<%= submit_tag "Uploadmovie info" %>
+<% end %>
+<%= link_to 'New Csvupload', new_csvupload_path %>
+  </div>
+</div>

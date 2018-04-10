@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
 
-  resources :ratings do
-    resources :characters
+  resources :csvuploads do 
+    collection { post :import }
   end
+  resources :movieuploads
+  resources :ratings do
+    
+    resources :characters
+    
+    
+ 
+  end
+  
+  resources :reminders
   
   resources :users
   resources :viewers

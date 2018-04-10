@@ -1,4 +1,5 @@
 class Rating < ApplicationRecord
+    require 'csv'
     has_many :characters, dependent: :destroy
     belongs_to :viewer
     
@@ -6,4 +7,5 @@ class Rating < ApplicationRecord
     validates :title, presence: true
     validates :rating, presence: true
     validates :description, presence: true
+   
 end

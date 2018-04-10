@@ -5,31 +5,16 @@
     <%= f.alert_message "Fix the errors below", error_summary: false %>
     <%= f.text_field :name, placeholder: 'name' %>
     <%= f.text_field :role, placeholder: 'role' %>
-  
-
-  
-    <%= csrf_meta_tags %>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+   <%= f.submit @character.persisted? ? "Update Character info" : "Create Character Info" %>
    
-    <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#"><%= link_to "View All character", rating_characters_path(@rating) %></a></li>
-</div>
-
-<nav aria-label="...">
-  <ul class="pager">
-    <li class="previous"><span aria-hidden="true">&larr;</span><%= link_to "Back", rating_characters_path(@rating) %></li>
-  </ul>
-</nav>
-
-    <%= f.submit @character.persisted? ? "Update Character info" : "Create Character Info" %>
-<% end %>
+   <% end%>
+      
+    <%= form_tag import_ratings_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+    
+    <%= @character.name %>
+    
+    
+    <% end %>
+     

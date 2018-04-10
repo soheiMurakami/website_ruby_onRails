@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @csvupload.name %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @csvupload.rating %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @csvupload.description %>
+</p>
+
+<%= link_to 'Edit', edit_csvupload_path(@csvupload) %> |
+<%= link_to 'Back', csvuploads_path %>

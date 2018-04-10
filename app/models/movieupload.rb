@@ -1,0 +1,2 @@
+class Movieupload < ApplicationRecord
+end

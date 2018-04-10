@@ -62,6 +62,10 @@ gem "bootstrap_form",
 gem "omniauth-github"
 
 gem 'loofah', '~>2.2.1'
+
+
+
+
 # Use Capistrano for deployment
 
 

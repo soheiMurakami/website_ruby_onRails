@@ -6,19 +6,20 @@ class CharactersController < ApplicationController
         @characters = @rating.characters.all
     end
     
+    
     def new 
         @character = Character.new
     end
     
     def create
         @character = Character.new character_params
-        if @rating.characters << @character
-           # redirect_to @character, notice: "character info has done"
-           redirect_to rating_characters_path, notice: "character info created"
-        else
-            render :new
-        end
         
+        if @rating.characters << @character
+               # redirect_to @character, notice: "character info has done"
+            redirect_to rating_characters_path, notice: "character info created" 
+        else
+            render :new 
+        end
     end
     
     def show 
@@ -27,13 +28,14 @@ class CharactersController < ApplicationController
     def edit
     end
     
-    def update 
-        if @character.update_attributes character_params
-            redirect_to [@rating,@character], notice: "Character info Updated"
-        else
-            render :edit
-        end
+    def update
         
+        if @character.update_attributes character_params
+            redirect_to [@rating,@character], notice: "Character info Updated" 
+        else
+            render :edit 
+        
+        end 
     end
     
     def destroy

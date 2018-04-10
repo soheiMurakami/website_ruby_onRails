@@ -10,12 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180404235300) do
+ActiveRecord::Schema.define(version: 20180410011738) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.text "role"
     t.integer "rating_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "csvuploads", force: :cascade do |t|
+    t.string "name"
+    t.integer "rating"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "movieuploads", force: :cascade do |t|
+    t.string "name"
+    t.integer "rating"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,6 +43,14 @@ ActiveRecord::Schema.define(version: 20180404235300) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "viewer_id"
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.string "name"
+    t.integer "priority"
+    t.integer "viewer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180404235300) do
     t.datetime "updated_at", null: false
     t.string "vid"
     t.string "token"
+    t.integer "viewer_id"
   end
 
 end

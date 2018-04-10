@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @movieupload.name %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @movieupload.rating %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @movieupload.description %>
+</p>
+
+<%= link_to 'Edit', edit_movieupload_path(@movieupload) %> |
+<%= link_to 'Back', movieuploads_path %>

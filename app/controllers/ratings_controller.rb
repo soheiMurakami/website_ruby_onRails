@@ -5,20 +5,20 @@ class RatingsController < ApplicationController
     def index 
         @ratings = current_viewer.ratings.all
     end
-    #GET /raings/new ratings#new
+
     def new 
         @rating = Rating.new
     end
-    #POST /ratings ratings#create
+
     def create
         @rating = Rating.new rating_params
         @rating.viewer = current_viewer
+
         if @rating.save
-            redirect_to @rating, notice: "Rating has done"
+            redirect_to @rating, notice: "Rating has done" 
         else
-            render :new
+            render :new 
         end
-        
     end
     #GET /ratings/:id ratings#show
     def show 
@@ -29,18 +29,21 @@ class RatingsController < ApplicationController
     end
     #PATCH/PUT /ratings/:id ratings#update
     def update 
+        
         if @rating.update_attributes rating_params
-            redirect_to @rating, notice: "Rating Updated"
+            redirect_to @rating, notice: "Rating Updated" 
         else
             render :edit
         end
-        
     end
     #DELETE /ratings/:id ratings#destroy
     def destroy
         @rating.destroy
-        redirect_to ratings_path, notice: "Rating has deleted"
+            redirect_to ratings_path, notice: "Rating has deleted" 
+        
     end
+    
+    
     
     private
     
@@ -51,5 +54,7 @@ class RatingsController < ApplicationController
     def rating_params
         params.require(:rating).permit(:title, :rating, :description)
     end
+    
+   
     
 end
