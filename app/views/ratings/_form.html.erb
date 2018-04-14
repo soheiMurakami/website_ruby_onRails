@@ -1,8 +1,9 @@
+<%= title "Create a Rating" %>
 <%= bootstrap_form_with(model: @rating, local: true) do |f| %>
     <%= f.alert_message "Fix the errors below", error_summary: false %>
-    <%= f.text_field :title, placeholder: 'title' %>
-    <%= f.number_field :rating, placeholder: 'rating' %>
-    <%= f.text_field :description, placeholder: 'description' %>
+    <%= f.text_field :title, id: 'rating_title' %>
+    <%= f.number_field :rating, id: 'rating_rating' %>
+    <%= f.text_field :description, id: 'rating_description' %>
+    <%= f.primary "Create Rating" %>
     
-    <%= f.submit @rating.persisted? ? "Update Rating" : "Create Rating" %>
 <% end %>

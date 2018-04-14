@@ -9,12 +9,5 @@
    
    <% end%>
       
-    <%= form_tag import_ratings_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import CSV" %>
     
-    <%= @character.name %>
-    
-    
-    <% end %>
      

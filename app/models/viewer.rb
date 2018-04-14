@@ -2,7 +2,7 @@ class Viewer < ApplicationRecord
     has_secure_password
     
     has_many :ratings, dependent: :destroy
-    
+    has_many :soheis
     validates :name, presence: true
     validates :email, format: { with: /@/, message: "need a @" }, uniqueness: true
     

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
  
   end
   
-  resources :reminders
+  resources :soheis
   
   resources :users
   resources :viewers

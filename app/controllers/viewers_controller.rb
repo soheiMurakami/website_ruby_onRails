@@ -21,6 +21,7 @@ class ViewersController < ApplicationController
         if @viewer.save
             session[:user_hash] = nil
             login(@viewer)
+            UserMailer.signupconfirmation(@viewer).deliver
             redirect_to root_path, notice: "Successfully signed up!"
         else
             render :new

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RemindersControllerTest < ActionDispatch::IntegrationTest
+class SoheiTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

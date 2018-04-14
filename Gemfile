@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem "simple_calendar", "~> 2.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use sqlite3 as the database for Active Record
@@ -42,6 +42,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'guard-minitest'
+  gem 'guard-spring'
+  
 end
 
 group :development do
@@ -51,6 +54,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'guard-test'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -62,11 +66,21 @@ gem "bootstrap_form",
 gem "omniauth-github"
 
 gem 'loofah', '~>2.2.1'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+#Added for tessting
+group :test do
+  gem 'capybara_minitest_spec'
+  gem 'shoulda', '~>3.5'
+  gem 'shoulda-matchers', '~> 2.0'
+  gem 'factory_bot_rails'
+  gem 'mocha'
+end
 
-
+gem 'factory_bot'
+gem 'jquery-datatables'
 
 # Use Capistrano for deployment
 
-
+gem 'rails-controller-testing'
 # gem 'capistrano-rails', group: :development
